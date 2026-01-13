@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "chemworkbench"
+version = "0.1.0"
+description = "Chemistry workbench"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.0"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+pydantic = "^2.2"
+pytest = "^7.4"
+jsonschema = "^4.21"
+
+[tool.poetry.dev-dependencies]
+black = "^24.3"
+isort = "^6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
