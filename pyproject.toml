@@ -7,7 +7,7 @@ readme = "README.md"
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.14"
+python = "^3.10"
 # FastAPI version compatible with Pydantic v2
 fastapi = ">=0.100.0,<1.0.0"
 # Keep Pydantic v2
