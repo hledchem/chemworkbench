@@ -1,4 +1,4 @@
-from core.base_processor import Processor
+from core.base_processor import BaseProcessor
 from typing import Dict, Any
 
 class SimplePropsProcessor(Processor):
