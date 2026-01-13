@@ -3,18 +3,30 @@ name = "chemworkbench"
 version = "0.1.0"
 description = "Chemistry workbench"
 authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-fastapi = "^0.95.0"
-uvicorn = {extras = ["standard"], version = "^0.22.0"}
-pydantic = "^2.2"
-pytest = "^7.4"
+python = "^3.14"
+# FastAPI version compatible with Pydantic v2
+fastapi = ">=0.100.0,<1.0.0"
+# Keep Pydantic v2
+pydantic = ">=2.0,<3.0"
+uvicorn = {extras = ["standard"], version = ">=0.22.0"}
 jsonschema = "^4.21"
 
 [tool.poetry.dev-dependencies]
+pytest = "^7.4"
 black = "^24.3"
 isort = "^6.0"
+
+[tool.poetry.packages]
+packages = [
+  { include = "core" },
+  { include = "app" },
+  { include = "processors" },
+  { include = "molecule_editor" }
+]
 
 [build-system]
 requires = ["poetry-core"]
