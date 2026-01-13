@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h3>ChemWorkBench Demo</h3>
+    <textarea id="mol" rows="10" cols="60">{"atoms":[{"id":"a1","element":"C","x":0,"y":0}],"bonds":[]}</textarea><br/>
+    <button id="run">Run Processor</button>
+    <pre id="out"></pre>
+    <script>
+      document.getElementById('run').onclick = async () => {
+        const mol = JSON.parse(document.getElementById('mol').value);
+        const res = await fetch('/api/process', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(mol)
+        });
+        const data = await res.json();
+        document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+      };
+    </script>
+  </body>
+</html>
