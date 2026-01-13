@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Molecule",
+  "type": "object",
+  "required": ["atoms", "bonds"],
+  "properties": {
+    "atoms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "element", "x", "y"],
+        "properties": {
+          "id": {"type": "string"},
+          "element": {"type": "string"},
+          "x": {"type": "number"},
+          "y": {"type": "number"},
+          "charge": {"type": "integer"}
+        }
+      }
+    },
+    "bonds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "order"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "order": {"type": "integer", "minimum": 1, "maximum": 3}
+        }
+      }
+    },
+    "metadata": {"type": "object"}
+  }
+}
