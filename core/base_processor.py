@@ -1,6 +1,8 @@
-
+# core/base_processor.py
+from __future__ import annotations
 from abc import ABC, abstractmethod
 from pathlib import Path
+from typing import Any, Dict
 
 class BaseProcessor(ABC):
     """Standard interface for all spectroscopy processors."""
@@ -10,16 +12,16 @@ class BaseProcessor(ABC):
     file_types: list[str] = []
 
     @abstractmethod
-    def read(self, file_path: Path):
-        """Load raw data from a file."""
+    def read(self, file_path: Path) -> Any:
+        """Load raw data from a file and return a raw-data object."""
         ...
 
     @abstractmethod
-    def plot(self, data):
-        """Return plot-ready data or a plot object."""
+    def plot(self, data: Any) -> Dict[str, Any]:
+        """Return plot-ready data or a plot object (serializable dict)."""
         ...
 
     @abstractmethod
-    def write(self, data, output_path: Path):
-        """Export processed data."""
+    def write(self, data: Any, output_path: Path) -> None:
+        """Export processed data to output_path."""
         ...
